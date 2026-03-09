@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Fashion Assistant</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="main-container">
+
+  <div class="sidebar">
+
+    <div class="sidebar-header">
+      <h1>✨ Fashion AI</h1>
+    </div>
+
+    <div class="sidebar-section">
+      <h3>Filters</h3>
+
+      <form id="filterForm" onsubmit="return false;">
+
+        <div class="filter-item">
+          <label for="gender">Gender</label>
+          <select id="gender">
+            <option value="">Any</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="unisex">Unisex</option>
+          </select>
+        </div>
+
+        <div class="filter-item">
+          <label for="category">Category</label>
+          <select id="category">
+            <option value="">Any</option>
+            <option value="topware">Topwear</option>
+            <option value="bottomware">Bottomwear</option>
+          </select>
+        </div>
+
+        <div class="filter-item">
+          <label for="subcategory">Subcategory</label>
+          <select id="subcategory">
+            <option value="">Any</option>
+            <option value="tshirts">T-Shirts</option>
+            <option value="shirts">Shirts</option>
+            <option value="kurtha">Kurtha</option>
+            <option value="saree">Saree</option>
+            <option value="pants">Pants</option>
+            <option value="shorts">Shorts</option>
+            <option value="night pants">Night Pants</option>
+          </select>
+        </div>
+
+        <div class="filter-item">
+          <label for="size">Size</label>
+          <select id="size">
+            <option value="">Any</option>
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+            <option>XL</option>
+            <option>XXL</option>
+          </select>
+        </div>
+
+        <div class="filter-item">
+          <label for="brand">Brand</label>
+          <input type="text" id="brand" placeholder="e.g. Nike">
+        </div>
+
+        <div class="filter-item">
+          <label>Budget (₹)</label>
+          <div class="budget-inputs">
+            <input type="number" id="min_price" placeholder="Min">
+            <input type="number" id="max_price" placeholder="Max">
+          </div>
+        </div>
+
+        <div class="filter-item">
+          <label for="min_rating">Minimum Rating</label>
+          <input type="number" id="min_rating" step="0.1" placeholder="e.g. 4">
+        </div>
+
+        <button type="button" onclick="searchProducts()" class="search-btn">
+          🔎 Search Products
+        </button>
+
+      </form>
+    </div>
+
+  </div>
+
+  <div class="chat-container">
+
+    <div class="chat-header">
+      <h2>AI Fashion Assistant</h2>
+      <p>Find products and get fashion advice</p>
+    </div>
+
+    <div id="chatBox" class="chat-messages"></div>
+
+    <div class="chat-input-area">
+
+      <div class="input-wrapper">
+
+        <input 
+          id="userInput"
+          type="text"
+          placeholder="Ask for product recommendations or fashion advice..."
+          onkeypress="handleKeyPress(event)"
+        >
+
+        <label for="imageInput" class="image-btn" title="Upload image for analysis">
+          📂
+        </label>
+
+        <input 
+          id="imageInput"
+          type="file"
+          accept="image/*"
+          style="display:none"
+          onchange="handleImageUpload(event)"
+        >
+
+       <button onclick="sendMessage()" class="send-btn">
+          ⬆
+        </button>
+
+      </div>
+
+      <div id="imagePreview" class="image-preview"></div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
