@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8000";
+const API_URL = "/api";
 let selectedImage = null;
 let subcategoryMap = {}; // Global variable to store subcategories by gender
 

@@ -1,0 +1,9 @@
+{
+  "name": "ai-fashion-assistant",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@google/genai": "^1.27.0",
+    "@netlify/functions": "^4.2.5"
+  }
+}
