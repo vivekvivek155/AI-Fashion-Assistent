@@ -2,8 +2,8 @@ from dotenv import load_dotenv
 load_dotenv()  # Load BEFORE other imports
 
 from fastapi import FastAPI, UploadFile, File
-from recommender import recommend_products, search_products
-from gemini_service import fashion_chat, analyze_fashion_image
+from backend.recommender import recommend_products, search_products
+from backend.gemini_service import fashion_chat, analyze_fashion_image
 from fastapi.middleware.cors import CORSMiddleware
 import os
 import tempfile
