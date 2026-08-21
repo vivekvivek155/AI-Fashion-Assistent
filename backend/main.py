@@ -20,12 +20,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/")
+@app.get("/api/")
 def home():
     return {"message": "Fashion AI API running"}
 
 # Recommendation API
-@app.post("/recommend")
+@app.post("/api/recommend")
 def recommend(data: dict):
     try:
         results = recommend_products(data)
@@ -36,7 +36,7 @@ def recommend(data: dict):
 
 # Provide unique filter values directly from CSV
 # Provide unique filter values directly from CSV
-@app.get("/filters")
+@app.get("/api/filters")
 def get_filters():
     try:
         from recommender import df
@@ -63,7 +63,7 @@ def get_filters():
     except Exception as e:
         print(f"Filters API Error: {str(e)}")
         return {"error": str(e)}
-@app.post("/get-tips")
+@app.post("/api/get-tips")
 def get_tips(data: dict):
     """
     Generate pro tips and disadvantages for a product using Gemini AI
@@ -125,7 +125,7 @@ Be specific and helpful."""
             "disadvantage": "Professional care recommended for optimal longevity."
         }
 
-@app.post("/chat")
+@app.post("/api/chat")
 def chat(data: dict):
     try:
         user_message = data.get("message", "")
@@ -149,7 +149,7 @@ def chat(data: dict):
         print(f"Chat API Error: {str(e)}")
         return {"reply": f"Error: {str(e)}"}
 
-@app.post("/analyze-image")
+@app.post("/api/analyze-image")
 async def analyze_image(file: UploadFile = File(...), prompt: str = ""):
     """
     Analyze a fashion image using Gemini AI vision
@@ -174,7 +174,7 @@ async def analyze_image(file: UploadFile = File(...), prompt: str = ""):
         print(f"Image Analysis API Error: {str(e)}")
         return {"analysis": f"Error analyzing image: {str(e)}"}
 
-@app.post("/search-products")
+@app.post("/api/search-products")
 def search_products_endpoint(filters: dict):
     """
     Search and filter products from CSV based on user criteria.
